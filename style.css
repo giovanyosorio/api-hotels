@@ -1,0 +1,13 @@
+*{
+    box-sizing: border-box;
+}
+#image1,#image2,#image3{
+    width: 250px;
+    height: 250px;
+}
+
+.random_flags{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
