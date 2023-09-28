@@ -1,4 +1,5 @@
 const url = "https://fakestoreapi.com/products";
+const urlAdd = "https://fakestoreapi.com/carts";
 const img1 = document.getElementById("image1");
 const img2 = document.getElementById("image2");
 const img3 = document.getElementById("image3");
@@ -33,7 +34,7 @@ async function loadFavorites() {
   const res = await fetch(url);
   const data = await res.json();
   console.log("Favoritos");
-  console.log(data);
+  console.log(`data,${data}`);
 
   if (res.status !== 200) {
     spanError.innerHTML = "Hubo un error: " + res.status + data.message;
@@ -66,10 +67,24 @@ async function addnewProduct(){
     console.log("body",data)
 }
 
-async function products(){
-    const res=await fetch(url)
-    const data=await res.json()
-    console.log(data)
+async function addCarts(){
+    const res=await fetch(url,{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify(
+            {
+                userId:5,
+                date:"2020-02-03",
+                products:[{productId:5,quantity:1},{productId:1,quantity:5}]
+            }
+        )
+    })
+    const data=await res.json() 
+    console.log("method",res)
+    console.log("body",data);
+    
 }
 
 fetchData();
