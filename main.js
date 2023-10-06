@@ -1,3 +1,4 @@
+
 const url = "https://fakestoreapi.com/products";
 const urlAdd = "https://fakestoreapi.com/carts";
 const img1 = document.getElementById("image1");
